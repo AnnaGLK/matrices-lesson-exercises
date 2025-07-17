@@ -19,7 +19,7 @@ class EmployeeMatrix extends Matrix {
       }
     }
 
-    return result;
+    return `The ${department} employees : ${result}`;
   }
 
   getTotalSalary(department) {
@@ -30,7 +30,20 @@ class EmployeeMatrix extends Matrix {
       }
     }
 
-    return totalSalary;
+    return `Total ${department} salary : ${totalSalary}`;
+  }
+
+  findRichest(){
+    let maxSalary = 0;
+let richest = null;
+    for (let employee of this.matrix){
+      if (employee.salary > maxSalary){
+        maxSalary = employee.salary;
+         richest = employee.name;
+      }
+
+    }
+    return `The richest person : ${richest}`;
   }
 }
 //You can paste the code from the lesson below to test your solution
@@ -54,5 +67,10 @@ console.log(m.getEmployees("Design")); //prints [ 'Tibor', 'Jakub', 'Mar', 'Nish
 
 console.log(m.getTotalSalary("Finance")); //prints 4300
 console.log(m.getTotalSalary("Design")); //prints 5300
+
+console.log(m.findRichest()) //prints Anisha
+
+
+
 /* Do not remove the exports below */
 module.exports = EmployeeMatrix;
