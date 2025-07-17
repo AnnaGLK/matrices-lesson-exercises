@@ -21,6 +21,17 @@ class EmployeeMatrix extends Matrix {
 
     return result;
   }
+
+  getTotalSalary(department) {
+    let totalSalary = 0;
+    for (let employee of this.matrix) {
+      if (employee.department === department) {
+        totalSalary += employee.salary;
+      }
+    }
+
+    return totalSalary;
+  }
 }
 //You can paste the code from the lesson below to test your solution
 
@@ -41,5 +52,7 @@ m.print();
 console.log(m.getEmployees("Finance")); //prints [ 'Gillian', 'Anisha' ]
 console.log(m.getEmployees("Design")); //prints [ 'Tibor', 'Jakub', 'Mar', 'Nisha' ]
 
+console.log(m.getTotalSalary("Finance")); //prints 4300
+console.log(m.getTotalSalary("Design")); //prints 5300
 /* Do not remove the exports below */
 module.exports = EmployeeMatrix;
